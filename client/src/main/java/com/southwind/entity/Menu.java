@@ -10,4 +10,5 @@ public class Menu implements Serializable {
     private String name;
     private double price;
     private String flavor;
+    private Type type;
 }

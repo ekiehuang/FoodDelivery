@@ -20,7 +20,8 @@ public class ClientHandler {
     @ResponseBody
     public MenuVO findAll(@RequestParam("page") int page, @RequestParam("limit") int limit) {
         int index = (page - 1) * limit;
-        return menuFeign.findAll(index, limit);
+        MenuVO menuVO = menuFeign.findAll(index, limit);
+        return menuVO;
     }
 
     @GetMapping("/redirect/{location}")
