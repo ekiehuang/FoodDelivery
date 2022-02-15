@@ -14,22 +14,33 @@
     </select>
 
     <select id="count" resultType="int">
-        select count(id) from t_menu;
+        select count(id)
+        from t_menu;
     </select>
 
     <insert id="save" parameterType="com.southwind.entity.Menu">
-        insert into t_menu(name,price,flavor) values(#{name},#{price},#{flavor})
+        insert into t_menu(name, price, flavor, tid)
+        values (#{name}, #{price}, #{flavor}, #{type.id})
     </insert>
 
-    <select id="findById" parameterType="long" resultType="com.southwind.entity.Menu">
-        select id mid,name mname,price,flavor from t_menu where id = #{id}
+    <select id="findById" parameterType="long" resultMap="menuMap">
+        select *
+        from t_menu
+        where id = #{id}
     </select>
 
     <update id="update" parameterType="com.southwind.entity.Menu">
-        update t_menu set name = #{name},price = #{price},flavor = #{flavor} where id = #{id}
+        update t_menu
+        set name   = #{name},
+            price  = #{price},
+            flavor = #{flavor},
+            tid    = #{type.id}
+        where id = #{id}
     </update>
 
     <delete id="deleteById" parameterType="long">
-        delete from t_menu where id = #{id}
+        delete
+        from t_menu
+        where id = #{id}
     </delete>
 </mapper>
