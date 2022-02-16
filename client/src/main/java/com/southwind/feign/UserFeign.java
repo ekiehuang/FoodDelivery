@@ -1,15 +1,14 @@
 package com.southwind.feign;
 
 import com.southwind.entity.User;
+import com.southwind.entity.UserVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @FeignClient(value = "user")
 public interface UserFeign {
     @GetMapping("/user/findAll/{index}/{limit}")
-    public List<User> findAll(@PathVariable("index") int index, @PathVariable("limit")int limit);
+    public UserVO findAll(@PathVariable("index") int index, @PathVariable("limit") int limit);
 
     @GetMapping("/user/findById/{id}")
     public User findById(@PathVariable("id") long id);
