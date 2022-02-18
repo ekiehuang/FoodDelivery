@@ -1,18 +1,24 @@
 package com.southwind.controller;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.southwind.entity.Order;
+import com.southwind.repository.OrderRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/order")
 public class OrderHandler {
-    @Value("${server.port}")
-    private String port;
+    @Resource
+    private OrderRepository orderRepository;
 
-    @GetMapping("/index")
-    public String index(){
-        return "the port of order: " + this.port;
+    @PostMapping("/save")
+    public void save(@RequestBody Order order) {
+        order.setDate(new Date());
+        orderRepository.save(order);
     }
 }

@@ -16,6 +16,7 @@
         <module>client</module>
         <module>user</module>
         <module>user</module>
+        <module>account</module>
     </modules>
 
     <parent>
