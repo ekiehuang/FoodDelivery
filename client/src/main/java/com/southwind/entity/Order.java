@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Data
 public class Order {
-    private int id;
+    private long id;
     private User user;
     private Menu menu;
     private Admin admin;
