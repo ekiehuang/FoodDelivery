@@ -30,15 +30,6 @@ public class UserController {
 //        return userVO;
     }
 
-    @GetMapping("/redirect/{location}")
-    public String redirect(@PathVariable("location") String location) {
-        return location;
-    }
-
-//    @GetMapping("/findById/{id}")
-//    public User findById(@PathVariable("id") long id) {
-//        return userFeign.findById(id);
-//    }
 
     @GetMapping("/count")
     public int count() {
@@ -49,17 +40,12 @@ public class UserController {
     public String save(User user) { //这里不能加@RequestBody注解，因为前端是普通传参方式（从user_add.html文档可以看出）
         user.setRegisterdate(new Date());
         userFeign.save(user);
-        return "redirect:/user/redirect/user_manage";
+        return "redirect:/menu/redirect/user_manage";
     }
-
-//    @PutMapping("/update")
-//    public void update(User user) {
-//        userFeign.update(user);
-//    }
 
     @GetMapping("/deleteById/{id}")
     public String deleteById(@PathVariable("id") long id) {
         userFeign.deleteById(id);
-        return "redirect:/user/redirect/user_manage";
+        return "redirect:/menu/redirect/user_manage";
     }
 }

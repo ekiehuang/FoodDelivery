@@ -42,9 +42,14 @@ public class AccountController {
                     result = "index";
                     break;
                 case "admin":
-                    Admin admin = (Admin)object;
+                    Admin admin = new Admin();
+                    String adminIdStr = map.get("id").toString();
+                    long adminId = Long.parseLong(adminIdStr);
+                    String adminName = (String) map.get("username");
+                    admin.setId(adminId);
+                    admin.setUsername(adminName);
                     session.setAttribute("admin", admin);
-                    result = "";
+                    result = "main";
                     break;
             }
         }
