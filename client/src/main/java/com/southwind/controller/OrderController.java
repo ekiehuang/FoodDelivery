@@ -36,4 +36,18 @@ public class OrderController {
         int index = (page - 1) * limit;
         return orderFeign.findAllByUid(index, limit, user.getId());
     }
+
+    @GetMapping("/findAll")
+    @ResponseBody
+    public OrderVO findAll(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+        int index = (page - 1) * limit;
+        return orderFeign.findAll(index, limit);
+    }
+
+    @GetMapping("/updateState/{id}")
+    public String updateState(@PathVariable("id") long id) {
+        orderFeign.updateState(id);
+        return "redirect:/menu/redirect/order_handler";
+    }
+
 }

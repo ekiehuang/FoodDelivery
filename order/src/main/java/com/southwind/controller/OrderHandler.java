@@ -28,4 +28,18 @@ public class OrderHandler {
         orderVO.setData(orderRepository.findAllByUid(index, limit, uid));
         return orderVO;
     }
+
+    @GetMapping("/findAll/{index}/{limit}")
+    public OrderVO findAll(@PathVariable("index") int index, @PathVariable("limit") int limit) {
+        OrderVO orderVO = new OrderVO();
+        orderVO.setMsg("");
+        orderVO.setCount(orderRepository.count());
+        orderVO.setData(orderRepository.findAll(index, limit));
+        return orderVO;
+    }
+
+    @GetMapping("/updateState/{id}")
+    public void updateState(@PathVariable("id") long id) {
+        orderRepository.updateState(id);
+    }
 }

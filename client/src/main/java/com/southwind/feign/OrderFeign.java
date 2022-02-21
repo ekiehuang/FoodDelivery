@@ -15,4 +15,10 @@ public interface OrderFeign {
 
     @GetMapping("/order/findAllByUid/{index}/{limit}/{uid}")
     public OrderVO findAllByUid(@PathVariable("index") int index, @PathVariable("limit") int limit, @PathVariable("uid") long uid);
+
+    @GetMapping("/order/findAll/{index}/{limit}")
+    public OrderVO findAll(@PathVariable("index") int index, @PathVariable("limit") int limit);
+
+    @GetMapping("/order/updateState/{id}")
+    public void updateState(@PathVariable("id") long id);
 }
