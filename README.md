@@ -1,9 +1,11 @@
 # Project Description
 
+This is a food delivery project, which allows customers to order restaurant dishes and administrators to manage menu
+users, and orders.
+
 ## 1. Introduction
 
-This is a food delivery project, which allows customers to order restaurant dishes and administrators to manage menu,
-users, and orders. There are seven modules, including eureka server, config server, account, client, user, menu, order.
+There are seven modules, including eureka server, config server, account, client, user, menu, order.
 
 ## 2. Functions
 
