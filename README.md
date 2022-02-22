@@ -1,15 +1,17 @@
-#Project Description
-##1. Introduction
-This is a food delivery project, which allows customers to order restaurant dishes and administrators 
-to manage menu, users, and orders.
-There are seven modules, including eureka server, config server, account, client, user, menu, order.
+# Project Description
 
-##2. Functions
-Eureka server: all these microservices need to register in Eureka center that is used to discover 
-and monitor all the registered services.
+## 1. Introduction
 
-Config center: use yaml files to manage all the microservices' config files, like the port, mybatis,
-eureka registration, and mysql database connection information
+This is a food delivery project, which allows customers to order restaurant dishes and administrators to manage menu,
+users, and orders. There are seven modules, including eureka server, config server, account, client, user, menu, order.
+
+## 2. Functions
+
+Eureka server: all these microservices need to register in Eureka center that is used to discover and monitor all the
+registered services.
+
+Config center: use yaml files to manage all the microservices' config files, like the port, mybatis, eureka
+registration, and mysql database connection information
 
 Menu: service provider. All the dishes in the restaurant.
 
